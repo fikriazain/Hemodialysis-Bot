@@ -30,17 +30,17 @@ Output:
 
 """
 
-@app.route('/first_message', methods=['POST'])
-def first_message():
-    data = request.json
-    username = data.get('username')
-    current_date_time = data.get('current_date_time')
-    prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-    prompt = prompt_template.format(username=username)
-    response = model_llm_rag.invoke(prompt)
-    translate = GoogleTranslator(source='en', target='id').translate(response)
-    llm.memory.chat_memory.add_ai_message(AIMessage(response))
-    return jsonify({"response": translate})
+# @app.route('/first_message', methods=['POST'])
+# def first_message():
+#     data = request.json
+#     username = data.get('username')
+#     current_date_time = data.get('current_date_time')
+#     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
+#     prompt = prompt_template.format(username=username)
+#     response = model_llm_rag.invoke(prompt)
+#     translate = GoogleTranslator(source='en', target='id').translate(response)
+#     llm.memory.chat_memory.add_ai_message(AIMessage(response))
+#     return jsonify({"response": translate})
 
 def simulate_llm_query(user_input, username):
     """
