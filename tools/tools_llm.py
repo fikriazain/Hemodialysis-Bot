@@ -3,7 +3,7 @@ from langchain.utilities import GoogleSerperAPIWrapper
 import requests
 import random
 import json
-from tools import db, reranker_model, model_llm_rag
+# from tools import db, reranker_model, model_llm_rag
 from langchain.retrievers import ContextualCompressionRetriever
 from langchain.retrievers.document_compressors import CrossEncoderReranker
 from deep_translator import GoogleTranslator
@@ -84,21 +84,22 @@ def send_emergency_message_to_medic(query: str) -> str:
 @tool
 def search_information_for_question(query: str) -> str:
     """Function that searches for information based on the user query. You must use this function if there are questions related to medical topics. 
-    The query is the message that the patient send to Panda, YOU MUST NOT CHANGE IT."""
-    compressor = CrossEncoderReranker(model=reranker_model, top_n=3)
-    compression_retriever = ContextualCompressionRetriever(
-        base_compressor=compressor, base_retriever=db
-    )
+    # The query is the message that the patient send to Panda, YOU MUST NOT CHANGE IT."""
+    # compressor = CrossEncoderReranker(model=reranker_model, top_n=3)
+    # compression_retriever = ContextualCompressionRetriever(
+    #     base_compressor=compressor, base_retriever=db
+    # )
 
-    query_translate = GoogleTranslator(source='english', target='id').translate(query)
-    results = compression_retriever.invoke(query)
-    target = "\n\n---\n\n".join([doc.page_content for doc in results])
-    context_text = GoogleTranslator(source='id', target='english').translate(target)
-    prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-    prompt = prompt_template.format(context=context_text, question=query_translate)
-    print(target)
-    result = model_llm_rag.invoke(prompt)
-    return GoogleTranslator(source='id', target='english').translate(result)
+    # query_translate = GoogleTranslator(source='english', target='id').translate(query)
+    # results = compression_retriever.invoke(query)
+    # target = "\n\n---\n\n".join([doc.page_content for doc in results])
+    # context_text = GoogleTranslator(source='id', target='english').translate(target)
+    # prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
+    # prompt = prompt_template.format(context=context_text, question=query_translate)
+    # print(target)
+    # result = model_llm_rag.invoke(prompt)
+    # return GoogleTranslator(source='id', target='english').translate(result)
+    return GoogleSerperAPIWrapper().run(query)
 
 # @tool
 # def search_medic_info(query: str) -> str:

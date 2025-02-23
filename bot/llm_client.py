@@ -9,7 +9,7 @@ URI = f'https://api.groq.com/openai/v1/chat/completions'
 
 client = Groq(
     # This is the default and can be omitted
-    api_key=os.environ.get('GROQ_API_KEY'),
+    api_key='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',
 )
 
 
