@@ -1,14 +1,14 @@
-import os
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores.chroma import Chroma
-from langchain_community.cross_encoders import HuggingFaceCrossEncoder
-import time
-from langchain.retrievers import ContextualCompressionRetriever
-from langchain.retrievers.document_compressors import CrossEncoderReranker
-from bot.llm_client import Mistral
+# import os
+# from langchain.embeddings import HuggingFaceEmbeddings
+# from langchain.vectorstores.chroma import Chroma
+# from langchain_community.cross_encoders import HuggingFaceCrossEncoder
+# import time
+# from langchain.retrievers import ContextualCompressionRetriever
+# from langchain.retrievers.document_compressors import CrossEncoderReranker
+# from bot.llm_client import Mistral
 
 
-os.environ["SERPER_API_KEY"] = 'TOKEN'
+# os.environ["SERPER_API_KEY"] = 'TOKEN'
 # CHROMA_PATH = "final_test/chroma_test"
 # CHROMA_PATH = "final_test/chroma_test2"
 

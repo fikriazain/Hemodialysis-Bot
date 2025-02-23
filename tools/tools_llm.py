@@ -4,10 +4,10 @@ import requests
 import random
 import json
 # from tools import db, reranker_model, model_llm_rag
-from langchain.retrievers import ContextualCompressionRetriever
-from langchain.retrievers.document_compressors import CrossEncoderReranker
-from deep_translator import GoogleTranslator
-from langchain.prompts import ChatPromptTemplate
+# from langchain.retrievers import ContextualCompressionRetriever
+# from langchain.retrievers.document_compressors import CrossEncoderReranker
+# from deep_translator import GoogleTranslator
+# from langchain.prompts import ChatPromptTemplate
 
 PROMPT_TEMPLATE = PROMPT_TEMPLATE = """### Instruction:
 Your job is to answer the question based on the given pieces of information. All you have to do is answer the question. Not all of the information provided may be relevant to the question. the answer you create must be logical. Each piece of information will be separated by '---'.

@@ -1,9 +1,9 @@
 from bot import llm
 # from tools import model_llm_rag
 from flask import Flask, request, jsonify
-from langchain_core.messages import HumanMessage, AIMessage
-from langchain.prompts import ChatPromptTemplate
-from deep_translator import GoogleTranslator
+# from langchain_core.messages import HumanMessage, AIMessage
+# from langchain.prompts import ChatPromptTemplate
+# from deep_translator import GoogleTranslator
 
 
 app = Flask(__name__)
